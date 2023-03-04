@@ -1,13 +1,14 @@
-package com.firstboot.entities;
 // default package
-// Generated Feb 27, 2023, 5:09:25 PM by Hibernate Tools 6.0.0.Alpha3
-
+// Generated Mar 4, 2023, 11:48:59 PM by Hibernate Tools 6.0.0.Alpha3
+package ITI.JETS.entities;
 
 import java.util.HashSet;
 import java.util.Set;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import static jakarta.persistence.GenerationType.IDENTITY;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
@@ -22,7 +23,9 @@ import jakarta.persistence.Table;
     ,catalog="marketplacedb"
 )
 public class Product  implements java.io.Serializable {
-     private int productId;
+
+
+     private Integer productId;
      private Category category;
      private String productName;
      private String productDescription;
@@ -36,15 +39,13 @@ public class Product  implements java.io.Serializable {
     }
 
 	
-    public Product(int productId, Category category, String productName, int productAmount, float price) {
-        this.productId = productId;
+    public Product(Category category, String productName, int productAmount, float price) {
         this.category = category;
         this.productName = productName;
         this.productAmount = productAmount;
         this.price = price;
     }
-    public Product(int productId, Category category, String productName, String productDescription, int productAmount, float price, Set<Image> images, Set<Userreviewproduct> userreviewproducts, Set<Userorderproduct> userorderproducts) {
-       this.productId = productId;
+    public Product(Category category, String productName, String productDescription, int productAmount, float price, Set<Image> images, Set<Userreviewproduct> userreviewproducts, Set<Userorderproduct> userorderproducts) {
        this.category = category;
        this.productName = productName;
        this.productDescription = productDescription;
@@ -55,20 +56,20 @@ public class Product  implements java.io.Serializable {
        this.userorderproducts = userorderproducts;
     }
    
-     @Id 
+     @Id @GeneratedValue(strategy=IDENTITY)
 
     
     @Column(name="productId", unique=true, nullable=false)
-    public int getProductId() {
+    public Integer getProductId() {
         return this.productId;
     }
     
-    public void setProductId(int productId) {
+    public void setProductId(Integer productId) {
         this.productId = productId;
     }
 
-@ManyToOne(fetch=FetchType.EAGER)
-    @JoinColumn(name="categoryId", nullable=true)
+@ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="categoryId", nullable=false)
     public Category getCategory() {
         return this.category;
     }

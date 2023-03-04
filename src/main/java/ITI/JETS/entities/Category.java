@@ -1,13 +1,14 @@
-package com.firstboot.entities;
 // default package
-// Generated Feb 27, 2023, 5:09:25 PM by Hibernate Tools 6.0.0.Alpha3
-
+// Generated Mar 4, 2023, 11:48:59 PM by Hibernate Tools 6.0.0.Alpha3
+package ITI.JETS.entities;
 
 import java.util.HashSet;
 import java.util.Set;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import static jakarta.persistence.GenerationType.IDENTITY;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
@@ -22,7 +23,7 @@ import jakarta.persistence.Table;
 public class Category  implements java.io.Serializable {
 
 
-     private int categoryId;
+     private Integer categoryId;
      private String categoryName;
      private Set<Product> products = new HashSet<Product>(0);
 
@@ -30,25 +31,23 @@ public class Category  implements java.io.Serializable {
     }
 
 	
-    public Category(int categoryId, String categoryName) {
-        this.categoryId = categoryId;
+    public Category(String categoryName) {
         this.categoryName = categoryName;
     }
-    public Category(int categoryId, String categoryName, Set<Product> products) {
-       this.categoryId = categoryId;
+    public Category(String categoryName, Set<Product> products) {
        this.categoryName = categoryName;
        this.products = products;
     }
    
-     @Id 
+     @Id @GeneratedValue(strategy=IDENTITY)
 
     
     @Column(name="categoryId", unique=true, nullable=false)
-    public int getCategoryId() {
+    public Integer getCategoryId() {
         return this.categoryId;
     }
     
-    public void setCategoryId(int categoryId) {
+    public void setCategoryId(Integer categoryId) {
         this.categoryId = categoryId;
     }
 
@@ -62,7 +61,7 @@ public class Category  implements java.io.Serializable {
         this.categoryName = categoryName;
     }
 
-@OneToMany(fetch=FetchType.LAZY, mappedBy="category")
+    @OneToMany(fetch=FetchType.LAZY, mappedBy="category")
     public Set<Product> getProducts() {
         return this.products;
     }

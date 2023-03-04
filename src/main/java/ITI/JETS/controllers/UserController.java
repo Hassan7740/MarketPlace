@@ -1,7 +1,7 @@
-package com.firstboot.controllers;
+package ITI.JETS.controllers;
 
-import com.firstboot.entities.User;
-import com.firstboot.reposrtories.UserRepository;
+import ITI.JETS.entities.User;
+import ITI.JETS.reposrtories.UserRepository;
 
 import java.util.HashMap;
 import java.util.Map;
