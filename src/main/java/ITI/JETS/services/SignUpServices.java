@@ -1,9 +1,9 @@
-package ITI.JETS.services;
+package iti.jets.services;
 
 import org.springframework.stereotype.Service;
 
-import ITI.JETS.entities.User;
-import ITI.JETS.services.DTOS.RequestDTOS.SignUpDTO;
+import iti.jets.entities.User;
+import iti.jets.services.DTOS.RequestDTOS.SignUpDTO;
 
 @Service
 public class SignUpServices {

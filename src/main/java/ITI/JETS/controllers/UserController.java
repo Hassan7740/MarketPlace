@@ -1,7 +1,4 @@
-package ITI.JETS.controllers;
-
-import ITI.JETS.entities.User;
-import ITI.JETS.reposrtories.UserRepository;
+package iti.jets.controllers;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -9,6 +6,9 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+
+import iti.jets.entities.User;
+import iti.jets.reposrtories.UserRepository;
 
 @RestController
 @RequestMapping("/api/v1/user")

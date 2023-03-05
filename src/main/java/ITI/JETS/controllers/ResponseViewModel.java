@@ -1,4 +1,4 @@
-package ITI.JETS.controllers;
+package iti.jets.controllers;
 
 import java.util.HashMap;
 import java.util.Map;

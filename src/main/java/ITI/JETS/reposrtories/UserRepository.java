@@ -1,9 +1,9 @@
-package ITI.JETS.reposrtories;
+package iti.jets.reposrtories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
-import ITI.JETS.entities.User;
+import iti.jets.entities.User;
 
 public interface UserRepository extends JpaRepository <User, Integer>{
 

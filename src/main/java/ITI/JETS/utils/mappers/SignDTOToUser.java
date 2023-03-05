@@ -1,4 +1,4 @@
-package ITI.JETS.utils.mappers;
+package iti.jets.utils.mappers;
 
 public class SignDTOToUser {
 

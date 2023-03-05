@@ -1,6 +1,6 @@
 // default package
 // Generated Mar 4, 2023, 11:48:59 PM by Hibernate Tools 6.0.0.Alpha3
-package ITI.JETS.entities;
+package iti.jets.entities;
 
 import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.AttributeOverrides;
