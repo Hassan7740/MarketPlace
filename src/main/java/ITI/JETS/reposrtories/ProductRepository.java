@@ -10,4 +10,6 @@ public interface ProductRepository extends JpaRepository<Product,Integer>{
 	
 	// @Query("delete from Product p where p.productId = :productId")
 	// public Product deleteProductByproductId(Integer productId);
+
+	public Product findProductByProductName(String productName);
 }
