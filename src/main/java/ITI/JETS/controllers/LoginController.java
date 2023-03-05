@@ -1,5 +1,7 @@
 package ITI.JETS.controllers;
 
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -7,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import ITI.JETS.services.LoginService;
 import ITI.JETS.services.DTOS.RequestDTOS.LoginDTO;
 import ITI.JETS.entities.User;
 import ITI.JETS.reposrtories.UserRepository;
@@ -19,15 +20,15 @@ public class LoginController {
   UserRepository re;
 
   @PostMapping
-  public ResponseViewModel login(@RequestBody LoginDTO lDto) {
-    return new LoginService(re).userValidation(lDto);
+  public String login(@RequestBody LoginDTO lDto) {
+    return new LoginService( ).userValidation(lDto);
   }
 
   @GetMapping
-  public Object getuser() {
-    User u = new User();
-    u.setEmail("hamza@gmail.com");
-    u.setPassword("123123");
-    return re.findUserByEmail("qweqwe123");
+  public String getuser() {
+    // User u = new User();
+    // u.setEmail("hamza@gmail.com");
+    // u.setPassword("123123");
+    return re.getClass().getName();
   }
 }

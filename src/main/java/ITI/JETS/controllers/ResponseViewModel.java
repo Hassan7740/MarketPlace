@@ -4,7 +4,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.http.HttpStatus;
-
+import org.springframework.stereotype.Controller;
+@Controller
 public class ResponseViewModel {
     private Map<String, Object> responseBody = new HashMap<>();
     

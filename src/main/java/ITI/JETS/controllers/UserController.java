@@ -19,7 +19,7 @@ public class UserController {
     @GetMapping("{id}")
     public Map getUser(@PathVariable int id) {
         ResponseViewModel res = new ResponseViewModel();
-        res.setResponseBody("Done", HttpStatus.OK, userRepository.findById(id));
+        res.setResponseBody("Done", HttpStatus.OK, userRepository.findById(id).get().getEmail());
         return res.getResponseBody();
     }
 
