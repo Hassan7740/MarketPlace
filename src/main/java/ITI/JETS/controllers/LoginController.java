@@ -1,4 +1,4 @@
-package iti.jets.controllers;
+package ITI.JETS.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -7,10 +7,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import iti.jets.entities.User;
-import iti.jets.reposrtories.UserRepository;
-import iti.jets.services.LoginService;
-import iti.jets.services.DTOS.RequestDTOS.LoginDTO;
+import ITI.JETS.entities.User;
+import ITI.JETS.reposrtories.UserRepository;
+import ITI.JETS.services.LoginService;
+import ITI.JETS.services.DTOS.RequestDTOS.LoginDTO;
 
 @RestController
 @RequestMapping("/login")

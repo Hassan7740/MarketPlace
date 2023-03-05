@@ -1,4 +1,4 @@
-package iti.jets.services;
+package ITI.JETS.services;
 
 import org.aspectj.weaver.patterns.ThisOrTargetAnnotationPointcut;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,10 +7,10 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Repository;
 
-import iti.jets.controllers.ResponseViewModel;
-import iti.jets.entities.User;
-import iti.jets.reposrtories.UserRepository;
-import iti.jets.services.DTOS.RequestDTOS.LoginDTO;
+import ITI.JETS.controllers.ResponseViewModel;
+import ITI.JETS.entities.User;
+import ITI.JETS.reposrtories.UserRepository;
+import ITI.JETS.services.DTOS.RequestDTOS.LoginDTO;
 
 @Component
 public class LoginService {
