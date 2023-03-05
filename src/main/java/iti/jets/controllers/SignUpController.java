@@ -4,7 +4,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import iti.jets.services.DTOS.RequestDTOS.SignUpDTO;
+import iti.jets.services.dto.RequestDTOS.SignUpDTO;
 
 
 

@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import iti.jets.entities.User;
 import iti.jets.reposrtories.UserRepository;
-import iti.jets.services.DTOS.RequestDTOS.LoginDTO;
+import iti.jets.services.dto.RequestDTOS.LoginDTO;
 
 @RestController
 @RequestMapping("/login")
