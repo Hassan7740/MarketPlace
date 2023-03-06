@@ -69,7 +69,7 @@ public class Product  implements java.io.Serializable {
     }
 
 @ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="categoryId", nullable=true)
+    @JoinColumn(name="categoryId", nullable=false)
     public Category getCategory() {
         return this.category;
     }
