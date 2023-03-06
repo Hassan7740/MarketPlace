@@ -24,8 +24,8 @@ public class ProductController {
 	ResponseViewModel responseViewModel;
 
 	@PostMapping
-	public ResponseViewModel AddProduct(@RequestBody AddProductDTO addProductDTO){
-		return null;
+	public ResponseViewModel AddProduct(@RequestBody AddProductDTO productDTO){
+		return pService.add(productDTO);
 	}
 
 	@DeleteMapping("{id}")

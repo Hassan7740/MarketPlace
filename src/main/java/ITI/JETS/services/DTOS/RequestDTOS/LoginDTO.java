@@ -1,4 +1,4 @@
-package ITI.JETS.services.DTOS.RequestDTOS;
+package ITI.JETS.services.dtos.requestdtos;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -1,7 +1,7 @@
 package ITI.JETS.utils.mappers;
 
 import ITI.JETS.entities.User;
-import ITI.JETS.services.DTOS.RequestDTOS.LoginDTO;
+import ITI.JETS.services.dtos.requestdtos.LoginDTO;
  
 
 public class LoginMapper {

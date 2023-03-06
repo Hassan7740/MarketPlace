@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import ITI.JETS.entities.User;
 import ITI.JETS.reposrtories.UserRepository;
 import ITI.JETS.services.LoginService;
-import ITI.JETS.services.DTOS.RequestDTOS.LoginDTO;
+import ITI.JETS.services.dtos.requestdtos.LoginDTO;
 
 @RestController
 @RequestMapping("/login")
