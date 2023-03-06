@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import ITI.JETS.controllers.ResponseViewModel;
 import ITI.JETS.entities.User;
 import ITI.JETS.reposrtories.UserRepository;
-import ITI.JETS.services.dtos.requestdtos.LoginDTO;
+import ITI.JETS.services.DTOS.RequestDTOS.LoginDTO;
 
 @Component
 public class LoginService {

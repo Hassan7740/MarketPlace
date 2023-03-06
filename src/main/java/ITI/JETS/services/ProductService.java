@@ -5,8 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import ITI.JETS.controllers.ResponseViewModel;
 import ITI.JETS.entities.Product;
 import ITI.JETS.reposrtories.ProductRepository;
-import ITI.JETS.services.dtos.requestdtos.AddProductDTO;
-import ITI.JETS.services.dtos.requestdtos.SearchProductDTO;
+import ITI.JETS.services.DTOS.RequestDTOS.AddProductDTO;
+import ITI.JETS.services.DTOS.RequestDTOS.SearchProductDTO;
 import ITI.JETS.utils.mappers.AddProductMapper;
 import ITI.JETS.utils.mappers.SearchProductMapper;
 

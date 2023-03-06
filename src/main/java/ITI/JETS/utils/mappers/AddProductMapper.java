@@ -1,7 +1,7 @@
 package ITI.JETS.utils.mappers;
 
 import ITI.JETS.entities.Product;
-import ITI.JETS.services.dtos.requestdtos.AddProductDTO;
+import ITI.JETS.services.DTOS.RequestDTOS.AddProductDTO;
 
 public class AddProductMapper {
 	public AddProductDTO mapProduct(Product p)

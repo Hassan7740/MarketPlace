@@ -15,13 +15,14 @@ import org.springframework.web.bind.annotation.RestController;
 import ITI.JETS.entities.Product;
 import ITI.JETS.reposrtories.ProductRepository;
 import ITI.JETS.services.ProductService;
-import ITI.JETS.services.dtos.requestdtos.AddProductDTO;
+import ITI.JETS.services.DTOS.RequestDTOS.AddProductDTO;
 
 @RestController
 @RequestMapping("/product")
 public class ProductController {
 	@Autowired
 	ProductRepository productRepo;
+	ResponseViewModel responseViewModel;
 	ProductService pService = new ProductService();
 
 	@GetMapping("{productName}")
