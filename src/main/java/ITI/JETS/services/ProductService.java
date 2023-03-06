@@ -12,8 +12,10 @@ import ITI.JETS.entities.Product;
 import ITI.JETS.reposrtories.ProductRepository;
 import ITI.JETS.services.DTOS.RequestDTOS.AddProductDTO;
 import ITI.JETS.services.DTOS.RequestDTOS.SearchProductDTO;
+import ITI.JETS.services.DTOS.RequestDTOS.UpdateProductDTO;
 import ITI.JETS.utils.mappers.AddProductMapper;
 import ITI.JETS.utils.mappers.SearchProductMapper;
+import ITI.JETS.utils.mappers.UpdateProductMapper;
 @Service
 public class ProductService {
 
@@ -48,11 +50,19 @@ public class ProductService {
 		Optional<Product> product = productRepository.findById(id);
 		if (product.isPresent()) {
 			productRepository.deleteById(id);
-			responseViewModel.setResponseBody("Product Deleted Successfully",HttpStatus.valueOf(202),"none");	
+			responseViewModel.setResponseBody("Product Deleted Successfully",HttpStatus.valueOf(200),"none");	
 		}
 		else{
 			responseViewModel.setResponseBody("No such product",HttpStatus.valueOf(404),"none");	
 		}
 		return responseViewModel;
-}
+    }
+
+    public ResponseViewModel updateProduct(AddProductDTO productDTO){
+        responseViewModel = new ResponseViewModel();
+        Product product = new UpdateProductMapper().mapProductDTO(productDTO);
+        productRepository.save(product);
+        responseViewModel.setResponseBody("product updated successfully",HttpStatus.valueOf(202),"updated");	
+        return responseViewModel;
+    }
 }
