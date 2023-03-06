@@ -21,6 +21,8 @@ import ITI.JETS.services.DTOS.RequestDTOS.AddProductDTO;
 @RequestMapping("/product")
 public class ProductController {
 	@Autowired
+	ProductService productService;
+	@Autowired
 	ProductRepository productRepo;
 	ResponseViewModel responseViewModel;
 	ProductService pService = new ProductService();
@@ -39,15 +41,6 @@ public class ProductController {
 
 	@DeleteMapping("{id}")
 	public ResponseViewModel deleteProductById(@PathVariable Integer id){
-		responseViewModel = new ResponseViewModel();
-		Optional<Product> product = productRepo.findById(id);
-		if (product.isPresent()) {
-			productRepo.deleteById(id);
-			responseViewModel.setResponseBody("Product Deleted Successfully",HttpStatus.valueOf(202),null);	
-		}
-		else{
-			responseViewModel.setResponseBody("No such product",HttpStatus.valueOf(404),null);	
-		}
-		return responseViewModel;
+		return  productService.deleteProductById(id);
 	}
 }

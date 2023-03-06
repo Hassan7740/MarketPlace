@@ -1,6 +1,11 @@
 package ITI.JETS.services;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import ITI.JETS.controllers.ResponseViewModel;
 import ITI.JETS.entities.Product;
@@ -9,7 +14,7 @@ import ITI.JETS.services.DTOS.RequestDTOS.AddProductDTO;
 import ITI.JETS.services.DTOS.RequestDTOS.SearchProductDTO;
 import ITI.JETS.utils.mappers.AddProductMapper;
 import ITI.JETS.utils.mappers.SearchProductMapper;
-
+@Service
 public class ProductService {
 
     @Autowired
@@ -37,4 +42,17 @@ public class ProductService {
 
         return responseViewModel;
     }
+
+    public ResponseViewModel deleteProductById(@PathVariable Integer id){
+		responseViewModel = new ResponseViewModel();
+		Optional<Product> product = productRepository.findById(id);
+		if (product.isPresent()) {
+			productRepository.deleteById(id);
+			responseViewModel.setResponseBody("Product Deleted Successfully",HttpStatus.valueOf(202),"none");	
+		}
+		else{
+			responseViewModel.setResponseBody("No such product",HttpStatus.valueOf(404),"none");	
+		}
+		return responseViewModel;
+}
 }
