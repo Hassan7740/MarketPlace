@@ -6,9 +6,11 @@ import ITI.JETS.controllers.ResponseViewModel;
 import ITI.JETS.entities.Product;
 import ITI.JETS.reposrtories.ProductRepository;
 import ITI.JETS.services.dtos.requestdtos.AddProductDTO;
+import ITI.JETS.services.dtos.requestdtos.SearchProductDTO;
 import ITI.JETS.utils.mappers.AddProductMapper;
+import ITI.JETS.utils.mappers.SearchProductMapper;
 
-public class AddProductService {
+public class ProductService {
 
     @Autowired
 	ProductRepository productRepository;
@@ -22,6 +24,16 @@ public class AddProductService {
         Product p = new AddProductMapper().mapProductDTO(pDto);
 
         productRepository.saveAndFlush(p);
+
+        return responseViewModel;
+    }
+
+    public ResponseViewModel search(String productName)
+    {
+        responseViewModel = new ResponseViewModel();
+         Product p = new Product();
+         SearchProductDTO pDto = new SearchProductMapper().mapProduct(p);
+        productRepository.findProductByProductName(pDto.getProductName());
 
         return responseViewModel;
     }
