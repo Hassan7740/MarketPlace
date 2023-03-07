@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import ITI.JETS.controllers.ResponseViewModel;
+import ITI.JETS.entities.Category;
 import ITI.JETS.entities.Product;
 import ITI.JETS.reposrtories.ProductRepository;
 import ITI.JETS.services.DTOS.RequestDTOS.AddProductDTO;
@@ -60,9 +61,21 @@ public class ProductService {
 
     public ResponseViewModel updateProduct(AddProductDTO productDTO){
         responseViewModel = new ResponseViewModel();
-        Product product = new UpdateProductMapper().mapProductDTO(productDTO);
-        productRepository.save(product);
-        responseViewModel.setResponseBody("product updated successfully",HttpStatus.valueOf(202),"updated");	
+        Optional<Product> productCheck = productRepository.findById(productDTO.getProductId());
+        if(productCheck.isPresent()){
+            Optional<Product> ProductcategoryCheck = productRepository.findById(productDTO.getCategory().getCategoryId()); 
+            if(ProductcategoryCheck.isPresent()){
+            Product product = new UpdateProductMapper().mapProductDTO(productDTO);
+            productRepository.save(product);
+            responseViewModel.setResponseBody("product updated successfully",HttpStatus.valueOf(200),"none");	
+            }
+             else {
+                responseViewModel.setResponseBody("No such Category",HttpStatus.valueOf(404),"none");	
+             }
+        }
+        else{
+            responseViewModel.setResponseBody("Couldn't update product",HttpStatus.valueOf(404),"none");	
+        }
         return responseViewModel;
     }
 }
