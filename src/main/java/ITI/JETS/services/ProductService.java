@@ -62,16 +62,11 @@ public class ProductService {
     public ResponseViewModel updateProduct(AddProductDTO productDTO){
         responseViewModel = new ResponseViewModel();
         Optional<Product> productCheck = productRepository.findById(productDTO.getProductId());
-        if(productCheck.isPresent()){
-            Optional<Product> ProductcategoryCheck = productRepository.findById(productDTO.getCategory().getCategoryId()); 
-            if(ProductcategoryCheck.isPresent()){
+        Optional<Product> ProductcategoryCheck = productRepository.findById(productDTO.getCategory().getCategoryId()); 
+        if(productCheck.isPresent() && ProductcategoryCheck.isPresent()){
             Product product = new UpdateProductMapper().mapProductDTO(productDTO);
             productRepository.save(product);
             responseViewModel.setResponseBody("product updated successfully",HttpStatus.valueOf(200),"none");	
-            }
-             else {
-                responseViewModel.setResponseBody("No such Category",HttpStatus.valueOf(404),"none");	
-             }
         }
         else{
             responseViewModel.setResponseBody("Couldn't update product",HttpStatus.valueOf(404),"none");	
